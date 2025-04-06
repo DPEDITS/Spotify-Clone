@@ -1,0 +1,110 @@
+.library {
+    background-color: rgb(26, 26, 26);
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    width: 60vh;
+    border-radius: 20px;
+    height: 80vh;
+    overflow: hidden; /* prevents extra scrollbars */
+  }
+  
+  .library1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+  }
+  
+  
+  .l1 {
+    font-size: 20px;
+    color: white;
+  }
+  
+  .l2 {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  .scrollable {
+    flex: 5; /* fills remaining vertical space */
+    overflow-y:auto; /* enables vertical scrolling */
+    padding: 20px 0px -50px 0px; /* padding for the scrollable area */
+    display: flex;
+    flex-direction:column;
+    gap: 20px;
+  }
+  
+  .playlist-card {
+    background-color: #282828;
+    border-radius: 30px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    margin: 0px 10px 0px 10px;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .card-subtext {
+    font-size: 14px;
+    color: #b3b3b3;
+  }
+  
+  .card-button {
+    align-self: flex-start;
+    margin-top: 10px;
+    background-color: white;
+    color: black;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .card-button:hover {
+    background-color: #e6e6e6;
+  }
+  .scrollable::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .scrollable::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .scrollable::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2); /* Light scrollbar thumb */
+    border-radius: 10px;
+  }
+  
+  .scrollable::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  .button1{
+    background: none;
+    border: none;
+    color: white;
+    font-size: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  .buttonstext{
+    flex: 3;
+    padding: 10px;
+    display: flex;
+    flex-direction:row;
+    
+  }
