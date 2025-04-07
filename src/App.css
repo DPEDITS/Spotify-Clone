@@ -1,12 +1,24 @@
-.body{
-    background-color: #000000;
+.body {
+  background-color: #000000;
+}
 
+.App {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr 2fr 1fr;
+  gap: 20px;
+  height: 100vh;
+}
+
+/* ----------------- */
+/* ✅ Mobile Screens */
+/* ----------------- */
+@media screen and (max-width: 768px) {
+  .App {
+    grid-template-columns: 1fr; /* Single column */
+    grid-template-rows: auto;   /* Let content define height */
+    gap: 10px;
+    height: auto; /* Allow page to scroll if needed */
+    padding: 10px;
   }
-  
-.App{
-        display: grid;
-        grid-template-columns: 1fr 3fr; 
-        grid-template-rows: 1fr 2fr 1fr;
-        gap: 20px;
-        height: 100vh; 
 }
