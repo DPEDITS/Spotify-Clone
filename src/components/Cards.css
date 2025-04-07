@@ -1,0 +1,40 @@
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+  padding: 0px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+
+  border-radius: 8px;
+  padding: 10px;
+  color: white;
+  text-align: left;
+  transition: transform 0.2s ease;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  margin: 5px 0;
+  font-size: 14px;
+  font-weight: 0;
+}
+
+.card p {
+  color: #b3b3b3;
+  font-size: 14px;
+    margin: 0;
+}
+.cardstrend{
+    background-color: transparent;
+    border: none;
+    font-size:small;
+}
