@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./Cards.css";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const cardsData = [
   {
@@ -44,12 +46,13 @@ const Cards = () => {
   const [currentSong, setCurrentSong] = useState(null);
   const audioRef = useRef(null);
 
-  // Ask for Notification permission on load
   useEffect(() => {
     if ('Notification' in window && Notification.permission !== 'granted') {
       Notification.requestPermission();
     }
   }, []);
+
+  const isMobile = () => /Mobi|Android/i.test(navigator.userAgent);
 
   const showNotification = (title, image) => {
     if ('Notification' in window && Notification.permission === 'granted') {
@@ -58,6 +61,16 @@ const Cards = () => {
         icon: image
       });
     }
+  };
+
+  const showInAppToast = (title) => {
+    toast.info(`🎶 Now Playing: ${title}`, {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      pauseOnHover: false,
+      draggable: false,
+    });
   };
 
   const handlePlay = (songUrl, title, image) => {
@@ -69,7 +82,11 @@ const Cards = () => {
         audioRef.current.src = songUrl;
         audioRef.current.play();
         setCurrentSong(songUrl);
-        showNotification(title, image); // Show notification
+        if (isMobile()) {
+          showInAppToast(title);
+        } else {
+          showNotification(title, image);
+        }
       }
     }
   };
@@ -90,6 +107,7 @@ const Cards = () => {
         </button>
       ))}
       <audio ref={audioRef} />
+      <ToastContainer />
     </div>
   );
 };
