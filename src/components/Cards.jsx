@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./Cards.css";
 
 const cardsData = [
@@ -37,14 +37,28 @@ const cardsData = [
     artist: "Maanu, Annural Khalid",
     image: "https://imgs.search.brave.com/b_T4j-lWHV5M0gjNDzV4sgs0deKFO_t6tgko-ClSLdc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jLnNh/YXZuY2RuLmNvbS83/NDEvSmhvbC1QdW5q/YWJpLTIwMjQtMjAy/NTAzMjcxNjMyMzAt/NTAweDUwMC5qcGc",
     songUrl: "https://raag.fm/files/mp3/128/Punjabi-Singles/28781/Jhol%20-%20(Raag.Fm).mp3"
-  },
+  }
 ];
-
-let currentNotification = null;
 
 const Cards = () => {
   const [currentSong, setCurrentSong] = useState(null);
   const audioRef = useRef(null);
+
+  // Ask for Notification permission on load
+  useEffect(() => {
+    if ('Notification' in window && Notification.permission !== 'granted') {
+      Notification.requestPermission();
+    }
+  }, []);
+
+  const showNotification = (title, image) => {
+    if ('Notification' in window && Notification.permission === 'granted') {
+      new Notification("Now Playing 🎵", {
+        body: title,
+        icon: image
+      });
+    }
+  };
 
   const handlePlay = (songUrl, title, image) => {
     if (audioRef.current) {
@@ -55,27 +69,7 @@ const Cards = () => {
         audioRef.current.src = songUrl;
         audioRef.current.play();
         setCurrentSong(songUrl);
-
-        // Show notification
-        if (currentNotification) {
-          currentNotification.close();
-        }
-
-        if (Notification.permission === "granted") {
-          currentNotification = new Notification("Now Playing 🎵", {
-            body: title,
-            icon: image
-          });
-        } else if (Notification.permission !== "denied") {
-          Notification.requestPermission().then(permission => {
-            if (permission === "granted") {
-              currentNotification = new Notification("Now Playing 🎵", {
-                body: title,
-                icon: image
-              });
-            }
-          });
-        }
+        showNotification(title, image); // Show notification
       }
     }
   };
