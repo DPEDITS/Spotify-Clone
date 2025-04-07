@@ -7,7 +7,7 @@
     margin-right: 5px;
     border-radius: 20px;
     height: 80vh;
-    overflow: hidden; /* prevents extra scrollbars */
+    overflow-y:auto; /* prevents extra scrollbars */
   }
   .trending {
     display: flex;
@@ -17,7 +17,8 @@
     font-weight: bold;
     color: white;
   }
-  .text-music1{
+  .text-music1,
+  .text-music2 {
     background-color: transparent;
     border: none;
     font-size:small;
@@ -25,3 +26,12 @@
     color: #a1a1a1;
     font-weight: 1000;
   }
+  .scrollable {
+    flex: 5;
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  

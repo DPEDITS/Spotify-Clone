@@ -12,7 +12,7 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="logo">
-        <img src={Logo} alt="Spotify Logo" width="60" height="60" />
+        <img src={Logo} alt="Spotify Logo" width="40" height="40" />
         <button className="icon-button">
           <FiHome size={30} />
         </button>
