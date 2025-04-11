@@ -125,8 +125,16 @@
   padding-left: 20px;
   color: #a7a5a5;
   font-weight: 1000;
+  text-decoration: none;
 }
-
+.text-button6:hover,
+.text-button4:hover,
+.text-button3:hover,
+.text-button2:hover,
+.text-button1:hover{
+  color: #ffffff;
+  cursor: pointer;
+}
 .text-button5 {
   background-color: white;
   border: 1px solid;
@@ -136,6 +144,13 @@
   color: #000000;
   font-weight: 1000;
   margin-left: 20px;
+  text-decoration: none; 
+}
+
+.text-button5:hover {
+  background-color: #f2f2f2;
+  border-color: #333;
+  cursor: pointer;
 }
 
 /* ----------------- */

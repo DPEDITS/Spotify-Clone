@@ -5,6 +5,7 @@ import { FiHome } from "react-icons/fi";
 import { IoSearch, IoFileTrayFullOutline } from "react-icons/io5";
 import { PiLineVerticalLight } from "react-icons/pi";
 import { FaRegArrowAltCircleDown } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -13,9 +14,9 @@ const Navbar = () => {
     <div className="navbar">
       <div className="logo">
         <img src={Logo} alt="Spotify Logo" width="40" height="40" />
-        <button className="icon-button">
+        <Link to="/" className="icon-button">
           <FiHome size={30} />
-        </button>
+        </Link>
         <div className="search-container">
           <IoSearch className="search-icon" />
           <input
@@ -38,8 +39,9 @@ const Navbar = () => {
         <button className="text-button3">Download</button>
         <PiLineVerticalLight className="line1" />
         <button className="text-button4"><FaRegArrowAltCircleDown/> Install App</button>
-        <button className="text-button6">Sign up</button> 
-        <button className="text-button5">Log in</button> 
+        <Link to="/signup" className="text-button6">Sign up</Link> 
+        <Link to="/Login" className="text-button5">Log in</Link>
+
       </div>
     </div>
   );
